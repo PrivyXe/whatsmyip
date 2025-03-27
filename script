@@ -24,14 +24,6 @@ export default {
       <html lang="en">
       <head>
       <html>
-      <meta name="yandex-verification" content="576d1aaffc97824c" />
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-EPQWPE2ZYJ"></script>
-        <script>
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-          gtag('config', 'G-EPQWPE2ZYJ');
-        </script>
         <meta charset="UTF-8">
         <title>What Is My IP Address & Geolocation?</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
