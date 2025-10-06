@@ -1,65 +1,72 @@
-# What is my IP Address Script powered by Cloudflare Workers. (No API Needed)
-This script is an IP lookup tool that runs on Cloudflare Workers. It dynamically creates an HTML page by extracting the user's IP address and geolocation information from the incoming HTTP request. The main functionalities and structure of the script are explained in detail below:
+# 🌐 What is my IP Address — Cloudflare Workers Script
 
-1. Extracting Information from the Request
-Cloudflare Header Data:
-The script retrieves Cloudflare-specific headers from the incoming HTTP request to obtain various details:
+> **Cloudflare Workers IP Lookup**: A lightweight script that displays the user's IP address and geolocation information without using any external API.
 
-IP Address: Obtained using the CF-Connecting-IP header.
+[![Cloudflare](https://img.shields.io/badge/Platform-Cloudflare-orange)](https://workers.cloudflare.com/)  [![License](https://img.shields.io/badge/License-MIT-green)](./LICENSE)
 
-Country: Determined using the CF-IPCountry header. If the header is missing, it defaults to "Unknown".
+---
 
-Region, City, Timezone, ISP: These values are extracted from the request.cf object. If any of these properties are unavailable, default values ("Unknown" or 0) are used.
+## 📌 Project Overview
 
-Autonomous System Number (ASN): The ASN is retrieved from Cloudflare’s asn property.
+This script runs on Cloudflare Workers, dynamically generating an HTML page to display the user's IP address, geolocation details, and network information. The tool extracts data directly from the incoming HTTP request, making it fast, reliable, and API-free.
 
-User Agent: The script uses the User-Agent header to capture the browser or device information.
+---
 
-Proxy Check: By checking the existence of the CF-Connecting-IP header, the script determines whether a proxy is being used.
+## ✨ Key Features
 
-2. Creating Visual Content
-Country Flag:
-Using the retrieved country code (converted to lowercase), the script constructs a URL to display the corresponding country flag. This visual element serves to enhance the user's understanding of their geolocation.
+### 1️⃣ Information Extraction
 
-3. HTML Page Structure and Content
-HTML Template:
-The script dynamically generates an HTML page that presents the user’s details such as IP address, country, region, city, timezone, ISP, and ASN. It uses template literals to insert the dynamic data into the HTML content.
+* **IP Address** — Retrieved via `CF-Connecting-IP` header.
+* **Country** — Determined via `CF-IPCountry` header; defaults to `Unknown` if missing.
+* **Region, City, Timezone, ISP** — Extracted from `request.cf` object; defaults applied if unavailable.
+* **ASN** — Retrieved from Cloudflare's `asn` property.
+* **User Agent** — Captured from the `User-Agent` header.
+* **Proxy Detection** — Identifies proxy usage by checking `CF-Connecting-IP`.
 
-Meta Tags and SEO:
-The page includes important meta tags for SEO:
+### 2️⃣ Visual Content
 
-Title, description, and keywords.
+* **Country Flag** — Displays the user’s country flag using the retrieved country code.
 
-Open Graph and Twitter meta tags for social media sharing.
+### 3️⃣ HTML Page Structure
 
-Google Analytics and Yandex verification scripts are embedded for tracking and verification purposes.
+* **Dynamic HTML** — Populates IP and geolocation data using template literals.
+* **Meta Tags & SEO** — Includes title, description, keywords, Open Graph, and Twitter meta tags.
+* **Analytics** — Google Analytics and Yandex verification scripts included.
+* **CSS Styling** — Supports responsive design, light/dark themes, and modern layout.
+* **Educational Sections** — Explains IP addresses, IPv4 vs IPv6, and related lookup concepts.
 
-CSS Styling:
-Built-in CSS defines the visual appearance of the page:
+### 4️⃣ User Interactions
 
-It supports both light and dark themes.
+* **Copy IP Address** — Button copies the user’s IP to clipboard with toast notification feedback.
+* **Dark Mode Toggle** — Switch between light and dark themes via a JavaScript toggle.
 
-The design is responsive, ensuring optimal display on various devices.
+### 5️⃣ Final Response
 
-Additional sections provide detailed information about IP addresses, including definitions, how they work, IPv4 vs. IPv6, and related lookup services.
+* Returns dynamic HTML as HTTP response with `Content-Type: text/html`.
+* Users see an interactive, informative webpage displaying IP and geolocation information.
 
-Additional Informational Sections:
-The HTML contains several sections that explain:
+---
 
-What an IP address is and how it functions.
+## 🛠️ Usage
 
-Differences between IPv4 and IPv6.
+* Deploy the script to Cloudflare Workers.
+* Access the worker URL in any browser.
+* View dynamic IP and geolocation details.
 
-Various aspects of IP lookup, whois, IP search, and similar concepts.
+---
 
-These sections enhance both the technical and educational value of the page.
+## 🔒 Privacy
 
-4. User Interactions and JavaScript Functions
-IP Copying Feature:
-A “Copy IP Address” button allows users to copy their IP address to the clipboard. Upon clicking, a JavaScript function writes the IP address to the clipboard and displays a toast notification indicating success or failure.
+* No personal data is collected or transmitted.
+* All data is retrieved from request headers.
+* IP and geolocation info displayed only to the user.
 
-Dark Mode Toggle:
-A dark mode button enables users to switch between light and dark themes. This toggle is implemented via a JavaScript function that adds or removes a CSS class from the body element.
+---
 
-5. Final Response
-At the end of the script, the dynamically generated HTML content is returned as an HTTP response with the header Content-Type: text/html. This ensures that when the Cloudflare Worker executes the script, the user receives an interactive, informative webpage displaying their IP and geolocation details.
+## 📄 License
+
+MIT License — Open source and free for educational use.
+
+---
+
+**⚠️ Disclaimer:** For educational and informational purposes only. Users are responsible for complying with applicable laws.
