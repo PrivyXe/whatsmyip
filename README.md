@@ -4,6 +4,8 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](./LICENSE)
 [![GitHub stars](https://img.shields.io/github/stars/PrivyXe/whatsmyip?style=social)](https://github.com/PrivyXe/whatsmyip)
+[![Forks](https://img.shields.io/github/forks/PrivyXe/whatsmyip?style=social)](https://github.com/PrivyXe/whatsmyip)
+[![Live Site](https://img.shields.io/badge/Live-myipaddress.app-blue)](https://myipaddress.app)
 
 ---
 
