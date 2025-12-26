@@ -1,72 +1,111 @@
-# 🌐 What is my IP Address — Cloudflare Workers Script
+# 🌐 Free IP Lookup Tool & Ad-Free IP Checker
 
-> **Cloudflare Workers IP Lookup**: A lightweight script that displays the user's IP address and geolocation information without using any external API.
+> **What is my IP address?** – Instant, privacy-first, ad-free public IP lookup with geolocation, network info, speed test, developer tools and embeddable widget.
 
-[![Cloudflare](https://img.shields.io/badge/Platform-Cloudflare-orange)](https://workers.cloudflare.com/)  [![License](https://img.shields.io/badge/License-MIT-green)](./LICENSE)
-
----
-
-## 📌 Project Overview
-
-This script runs on Cloudflare Workers, dynamically generating an HTML page to display the user's IP address, geolocation details, and network information. The tool extracts data directly from the incoming HTTP request, making it fast, reliable, and API-free.
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](./LICENSE)
+[![GitHub stars](https://img.shields.io/github/stars/PrivyXe/whatsmyip?style=social)](https://github.com/PrivyXe/whatsmyip)
 
 ---
 
-## ✨ Key Features
+## Why This Project Exists
 
-### 1️⃣ Information Extraction
+Most "what is my IP" websites are full of intrusive ads, pop-ups, trackers and slow loading times.  
+This project started as a simple Cloudflare Workers script to fix exactly that — and evolved into a full-featured, **completely ad-free IP lookup tool** with developer-friendly extras.
 
-* **IP Address** — Retrieved via `CF-Connecting-IP` header.
-* **Country** — Determined via `CF-IPCountry` header; defaults to `Unknown` if missing.
-* **Region, City, Timezone, ISP** — Extracted from `request.cf` object; defaults applied if unavailable.
-* **ASN** — Retrieved from Cloudflare's `asn` property.
-* **User Agent** — Captured from the `User-Agent` header.
-* **Proxy Detection** — Identifies proxy usage by checking `CF-Connecting-IP`.
-
-### 2️⃣ Visual Content
-
-* **Country Flag** — Displays the user’s country flag using the retrieved country code.
-
-### 3️⃣ HTML Page Structure
-
-* **Dynamic HTML** — Populates IP and geolocation data using template literals.
-* **Meta Tags & SEO** — Includes title, description, keywords, Open Graph, and Twitter meta tags.
-* **Analytics** — Google Analytics and Yandex verification scripts included.
-* **CSS Styling** — Supports responsive design, light/dark themes, and modern layout.
-* **Educational Sections** — Explains IP addresses, IPv4 vs IPv6, and related lookup concepts.
-
-### 4️⃣ User Interactions
-
-* **Copy IP Address** — Button copies the user’s IP to clipboard with toast notification feedback.
-* **Dark Mode Toggle** — Switch between light and dark themes via a JavaScript toggle.
-
-### 5️⃣ Final Response
-
-* Returns dynamic HTML as HTTP response with `Content-Type: text/html`.
-* Users see an interactive, informative webpage displaying IP and geolocation information.
+**This repository** contains the **original lightweight single-file version** (great for learning, quick deploys or minimal setups).  
+The **full modern version** is live and actively developed here:  
+👉 **[https://myipaddress.app](https://myipaddress.app)**
 
 ---
 
-## 🛠️ Usage
+## ✨ Features – Minimal Version (This Repo)
 
-* Deploy the script to Cloudflare Workers.
-* Access the worker URL in any browser.
-* View dynamic IP and geolocation details.
-
----
-
-## 🔒 Privacy
-
-* No personal data is collected or transmitted.
-* All data is retrieved from request headers.
-* IP and geolocation info displayed only to the user.
+- Instant public **IP address** detection (IPv4 & IPv6 aware)
+- Country flag + geolocation (city, region, timezone, ISP, ASN)
+- Proxy/VPN detection hints
+- Light/dark mode toggle
+- One-click **copy to clipboard** with toast feedback
+- Responsive, clean & educational design
+- Zero tracking, zero logs, zero external API calls
 
 ---
 
-## 📄 License
+## 🚀 Full Version Highlights (myipaddress.app)
 
-MIT License — Open source and free for educational use.
+- Built-in **internet speed test** (download, upload, ping, jitter)
+- 30+ free developer tools:
+  - Subnet calculator
+  - JWT decoder
+  - Regex tester
+  - UUID generator
+  - HTTP headers checker
+  - Password & hash generator
+  - Base64 / URL encoder-decoder
+  - And more…
+- **Customizable embeddable IP widget** – perfect for blogs, dashboards, status pages, privacy tools
+- **Free public IP API** – no signup, no API key, 1000 requests/day per IP (JSON & plain text)
+- Dark/light themes, mobile-friendly, super fast (Cloudflare edge optimized)
 
----
+Live site: **[https://myipaddress.app](https://myipaddress.app)**
 
-**⚠️ Disclaimer:** For educational and informational purposes only. Users are responsible for complying with applicable laws.
+Customization options:
+theme=light|dark
+size=small|medium|large
+style=minimal|full
+
+Generate your perfect widget: Widget Builder
+
+Sites already embedding the widget (add yours via PR or issue!):
+
+(Coming soon – be the first!)
+🔒 Strong Privacy Focus
+No logs or analytics
+No personal data collection
+No third-party requests
+All processing happens in real-time per request
+📄 License
+MIT License – free to use, modify, fork, embed and learn from.
+
+How to Support This Project
+⭐ Star this repo if you like the minimal version
+🌐 Embed the widget on your blog/site/dashboard
+🔗 Share the full tool: https://myipaddress.app
+💬 Open an issue or PR if you have feedback, feature ideas or want your site listed as a user
+
+Thank you for using and supporting ad-free, privacy-respecting tools! 🛡️
+
+### Embed the Free IP Widget on Your Website (No Ads, No Tracking)
+
+Just copy-paste one of these ready-to-use iframes:
+
+```html
+<!-- Dark theme, medium size, full details -->
+<iframe 
+  src="https://myipaddress.app/widget?theme=dark&size=medium&style=full" 
+  width="280" 
+  height="90" 
+  frameborder="0" 
+  loading="lazy" 
+  title="My IP Address Widget">
+</iframe>
+
+<!-- Light theme, compact size -->
+<iframe 
+  src="https://myipaddress.app/widget?theme=light&size=small&style=minimal" 
+  width="220" 
+  height="60" 
+  frameborder="0" 
+  loading="lazy" 
+  title="Simple IP Display">
+</iframe>
+
+<!-- Large version with more info -->
+<iframe 
+  src="https://myipaddress.app/widget?theme=dark&size=large&style=full" 
+  width="350" 
+  height="120" 
+  frameborder="0" 
+  loading="lazy" 
+  title="Detailed IP Widget">
+</iframe>
+
